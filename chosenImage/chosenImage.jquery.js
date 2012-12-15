@@ -8,7 +8,9 @@
                 imgMap  = {};
 
             // 1. Retrieve img-src from data attribute and build object of image sources for each list item
-            $select.find('option').each(function(i) {
+            $select.find('option').filter(function(){
+                return $(this).text();
+            }).each(function(i) {
                     var imgSrc   = $(this).attr('data-img-src');
                     imgMap[i]    = imgSrc;
             });
