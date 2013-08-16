@@ -19,7 +19,11 @@
             // 2. Execute chosen plugin
             $select.chosen(options);
 
-            var  chzn      = '#' + $select.attr('id') + '_chzn',
+            // 2.1 update (or create) div.chzn-container id
+            var chzn_id = $select.attr('id').length ? $select.attr('id').replace(/[^\w]/g, '_') : this.generate_field_id();
+            chzn_id += "_chzn";
+
+            var  chzn      = '#' + chzn_id,            
                 $chzn      = $(chzn).addClass('chznImage-container');
 
 
